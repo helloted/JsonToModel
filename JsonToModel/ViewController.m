@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "NSString+HTJson.h"
+#import "User.h"
+#import "NSObject+HTTransform.h"
 
 @interface ViewController ()
 
@@ -16,7 +19,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"testJson" ofType:nil];
+    NSString *jsonStr = [NSString stringWithContentsOfFile:sourcePath encoding:NSUTF8StringEncoding error:nil];
+    
+    NSDictionary *dict = [jsonStr ht_jsonStringToDictionary];
+    
+    User *user = [User ht_objectWithDictionary:dict];
+    
+    NSLog(@"%f",user.height);
+    
 }
 
 

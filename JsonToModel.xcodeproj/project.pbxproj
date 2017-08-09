@@ -13,6 +13,10 @@
 		886108BC1F3AA96D00300B03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 886108BA1F3AA96D00300B03 /* Main.storyboard */; };
 		886108BE1F3AA96D00300B03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 886108BD1F3AA96D00300B03 /* Assets.xcassets */; };
 		886108C11F3AA96D00300B03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 886108BF1F3AA96D00300B03 /* LaunchScreen.storyboard */; };
+		886108C91F3AAAE400300B03 /* testJson in Resources */ = {isa = PBXBuildFile; fileRef = 886108C81F3AAAE400300B03 /* testJson */; };
+		886108D51F3AACF100300B03 /* NSObject+HTTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = 886108D41F3AACF100300B03 /* NSObject+HTTransform.m */; };
+		886108D81F3AAD0900300B03 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 886108D71F3AAD0900300B03 /* User.m */; };
+		88DF0FCD1F3AB00A00A6C1D4 /* NSString+HTJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DF0FCC1F3AB00A00A6C1D4 /* NSString+HTJson.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,13 @@
 		886108BD1F3AA96D00300B03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		886108C01F3AA96D00300B03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		886108C21F3AA96D00300B03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		886108C81F3AAAE400300B03 /* testJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testJson; sourceTree = "<group>"; };
+		886108D31F3AACF100300B03 /* NSObject+HTTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+HTTransform.h"; path = "Tools/NSObject+HTTransform.h"; sourceTree = "<group>"; };
+		886108D41F3AACF100300B03 /* NSObject+HTTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+HTTransform.m"; path = "Tools/NSObject+HTTransform.m"; sourceTree = "<group>"; };
+		886108D61F3AAD0900300B03 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		886108D71F3AAD0900300B03 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		88DF0FCB1F3AB00A00A6C1D4 /* NSString+HTJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+HTJson.h"; path = "Tools/NSString+HTJson.h"; sourceTree = "<group>"; };
+		88DF0FCC1F3AB00A00A6C1D4 /* NSString+HTJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+HTJson.m"; path = "Tools/NSString+HTJson.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +69,8 @@
 		886108B01F3AA96D00300B03 /* JsonToModel */ = {
 			isa = PBXGroup;
 			children = (
+				886108CF1F3AAC3400300B03 /* Tools */,
+				886108C81F3AAAE400300B03 /* testJson */,
 				886108B41F3AA96D00300B03 /* AppDelegate.h */,
 				886108B51F3AA96D00300B03 /* AppDelegate.m */,
 				886108B71F3AA96D00300B03 /* ViewController.h */,
@@ -67,6 +80,8 @@
 				886108BF1F3AA96D00300B03 /* LaunchScreen.storyboard */,
 				886108C21F3AA96D00300B03 /* Info.plist */,
 				886108B11F3AA96D00300B03 /* Supporting Files */,
+				886108D61F3AAD0900300B03 /* User.h */,
+				886108D71F3AAD0900300B03 /* User.m */,
 			);
 			path = JsonToModel;
 			sourceTree = "<group>";
@@ -77,6 +92,17 @@
 				886108B21F3AA96D00300B03 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		886108CF1F3AAC3400300B03 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				88DF0FCB1F3AB00A00A6C1D4 /* NSString+HTJson.h */,
+				88DF0FCC1F3AB00A00A6C1D4 /* NSString+HTJson.m */,
+				886108D31F3AACF100300B03 /* NSObject+HTTransform.h */,
+				886108D41F3AACF100300B03 /* NSObject+HTTransform.m */,
+			);
+			name = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +165,7 @@
 			files = (
 				886108C11F3AA96D00300B03 /* LaunchScreen.storyboard in Resources */,
 				886108BE1F3AA96D00300B03 /* Assets.xcassets in Resources */,
+				886108C91F3AAAE400300B03 /* testJson in Resources */,
 				886108BC1F3AA96D00300B03 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +178,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				886108B91F3AA96D00300B03 /* ViewController.m in Sources */,
+				886108D81F3AAD0900300B03 /* User.m in Sources */,
+				886108D51F3AACF100300B03 /* NSObject+HTTransform.m in Sources */,
+				88DF0FCD1F3AB00A00A6C1D4 /* NSString+HTJson.m in Sources */,
 				886108B61F3AA96D00300B03 /* AppDelegate.m in Sources */,
 				886108B31F3AA96D00300B03 /* main.m in Sources */,
 			);
@@ -311,6 +341,7 @@
 				886108C71F3AA96D00300B03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
