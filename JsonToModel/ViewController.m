@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "User.h"
 #import "NSObject+JsonToModel.h"
+#import "MapperUser.h"
 
 @interface ViewController ()
 
@@ -19,13 +20,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self testMapper];
+    
+}
+
+- (void)testMapper{
+    NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"testJson" ofType:nil];
+    NSString *jsonStr = [NSString stringWithContentsOfFile:sourcePath encoding:NSUTF8StringEncoding error:nil];
+    
+    MapperUser *user = [MapperUser ht_modelFromJson:jsonStr];
+    
+    NSLog(@"%@",user.realName);
+}
+
+- (void)testNormal{
     NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"testJson" ofType:nil];
     NSString *jsonStr = [NSString stringWithContentsOfFile:sourcePath encoding:NSUTF8StringEncoding error:nil];
     
     User *user = [User ht_modelFromJson:jsonStr];
     
     NSLog(@"%f",user.height);
-    
 }
 
 

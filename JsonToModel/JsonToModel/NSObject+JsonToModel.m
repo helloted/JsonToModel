@@ -8,6 +8,7 @@
 
 #import "NSObject+JsonToModel.h"
 #import <objc/runtime.h>
+#import <objc/message.h>
 
 @implementation NSObject (JsonToModel)
 
@@ -31,10 +32,9 @@
         
         //拿到属性名称和类型
         NSString *name = [NSString stringWithUTF8String:property_getName(property)];
-        NSString *type = [self getProperyType:property];
         
+        // 从Json字典里获取值
         id value = [dict objectForKey:name];
-        
         if (value == nil) {
             continue;
         }

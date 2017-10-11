@@ -16,6 +16,7 @@
 		886108C91F3AAAE400300B03 /* testJson in Resources */ = {isa = PBXBuildFile; fileRef = 886108C81F3AAAE400300B03 /* testJson */; };
 		886108D81F3AAD0900300B03 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 886108D71F3AAD0900300B03 /* User.m */; };
 		888F3B421F8DF85900C14E70 /* NSObject+JsonToModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 888F3B411F8DF85900C14E70 /* NSObject+JsonToModel.m */; };
+		888F3B471F8E039800C14E70 /* MapperUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 888F3B461F8E039800C14E70 /* MapperUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		886108D71F3AAD0900300B03 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		888F3B401F8DF85900C14E70 /* NSObject+JsonToModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+JsonToModel.h"; sourceTree = "<group>"; };
 		888F3B411F8DF85900C14E70 /* NSObject+JsonToModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JsonToModel.m"; sourceTree = "<group>"; };
+		888F3B451F8E039800C14E70 /* MapperUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapperUser.h; sourceTree = "<group>"; };
+		888F3B461F8E039800C14E70 /* MapperUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapperUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +69,7 @@
 		886108B01F3AA96D00300B03 /* JsonToModel */ = {
 			isa = PBXGroup;
 			children = (
+				888F3B441F8E038400C14E70 /* New Group */,
 				888F3B3F1F8DF83500C14E70 /* JsonToModel */,
 				886108C81F3AAAE400300B03 /* testJson */,
 				886108B41F3AA96D00300B03 /* AppDelegate.h */,
@@ -77,8 +81,6 @@
 				886108BF1F3AA96D00300B03 /* LaunchScreen.storyboard */,
 				886108C21F3AA96D00300B03 /* Info.plist */,
 				886108B11F3AA96D00300B03 /* Supporting Files */,
-				886108D61F3AAD0900300B03 /* User.h */,
-				886108D71F3AAD0900300B03 /* User.m */,
 			);
 			path = JsonToModel;
 			sourceTree = "<group>";
@@ -98,6 +100,17 @@
 				888F3B411F8DF85900C14E70 /* NSObject+JsonToModel.m */,
 			);
 			path = JsonToModel;
+			sourceTree = "<group>";
+		};
+		888F3B441F8E038400C14E70 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				886108D61F3AAD0900300B03 /* User.h */,
+				886108D71F3AAD0900300B03 /* User.m */,
+				888F3B451F8E039800C14E70 /* MapperUser.h */,
+				888F3B461F8E039800C14E70 /* MapperUser.m */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +188,7 @@
 				886108B91F3AA96D00300B03 /* ViewController.m in Sources */,
 				886108D81F3AAD0900300B03 /* User.m in Sources */,
 				888F3B421F8DF85900C14E70 /* NSObject+JsonToModel.m in Sources */,
+				888F3B471F8E039800C14E70 /* MapperUser.m in Sources */,
 				886108B61F3AA96D00300B03 /* AppDelegate.m in Sources */,
 				886108B31F3AA96D00300B03 /* main.m in Sources */,
 			);
