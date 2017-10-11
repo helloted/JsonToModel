@@ -7,9 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "NSString+HTJson.h"
 #import "User.h"
-#import "NSObject+HTTransform.h"
+#import "NSObject+JsonToModel.h"
 
 @interface ViewController ()
 
@@ -23,9 +22,7 @@
     NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"testJson" ofType:nil];
     NSString *jsonStr = [NSString stringWithContentsOfFile:sourcePath encoding:NSUTF8StringEncoding error:nil];
     
-    NSDictionary *dict = [jsonStr ht_jsonStringToDictionary];
-    
-    User *user = [User ht_objectWithDictionary:dict];
+    User *user = [User ht_modelFromJson:jsonStr];
     
     NSLog(@"%f",user.height);
     
