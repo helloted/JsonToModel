@@ -13,3 +13,11 @@
 +(instancetype)ht_modelFromJson:(id)json;
 
 @end
+
+@protocol JSONAttributesMapperProtocol <NSObject>
+
+@required
+
++ (NSDictionary *)attributesMapperDictionary;
+
+@end

@@ -21,31 +21,43 @@
 
 
 +(instancetype)ht_modelWithDictionary:(NSDictionary *)dict{
-    id theObj = [[self alloc] init];
+    id model = [[self alloc] init];
     
     //获取当前类中的所有属性
     unsigned int propertyCount;
     objc_property_t *allPropertys = class_copyPropertyList([self class], &propertyCount);
     
+    // 某些属性需要映射
+    NSDictionary *mapperDict;
+    if ([model conformsToProtocol:@protocol(JSONAttributesMapperProtocol)] && [[model class] respondsToSelector:@selector(attributesMapperDictionary)]) {
+        mapperDict = [[model class] attributesMapperDictionary];
+    }
+    
     for (NSInteger i = 0; i < propertyCount; i ++) {
         objc_property_t property = allPropertys[i];
         
         //拿到属性名称和类型
-        NSString *name = [NSString stringWithUTF8String:property_getName(property)];
+        NSString *property_name = [NSString stringWithUTF8String:property_getName(property)];
+        
+        // 如果有属性需要重新映射
+        NSString *key = property_name;
+        if (mapperDict && [mapperDict objectForKey:property_name]) {
+            key = [mapperDict objectForKey:property_name];
+        }
         
         // 从Json字典里获取值
-        id value = [dict objectForKey:name];
+        id value = [dict objectForKey:key];
         if (value == nil) {
             continue;
         }
         
-        [theObj willChangeValueForKey:name];
-        [theObj setValue:value forKey:name];
-        [theObj didChangeValueForKey:name];
+        [model willChangeValueForKey:property_name];
+        [model setValue:value forKey:property_name];
+        [model didChangeValueForKey:property_name];
         
     }
-    
-    return theObj;
+
+    return model;
 }
 
 +(NSString *)getProperyType:(objc_property_t)property{

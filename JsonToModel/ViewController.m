@@ -31,6 +31,7 @@
     MapperUser *user = [MapperUser ht_modelFromJson:jsonStr];
     
     NSLog(@"%@",user.realName);
+    NSLog(@"%f",user.height);
 }
 
 - (void)testNormal{

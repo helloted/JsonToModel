@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSObject+JsonToModel.h"
 
-@interface MapperUser : NSObject
+@interface MapperUser : NSObject <JSONAttributesMapperProtocol>
 
 @property (copy, nonatomic) NSString *realName;
-@property (copy, nonatomic) NSString *realAdderss;
+@property (copy, nonatomic) NSString *realIcon;
+@property (assign, nonatomic) double height;
 
 @end

@@ -10,4 +10,9 @@
 
 @implementation MapperUser
 
++(NSDictionary *)attributesMapperDictionary{
+    return @{@"realName" : @"name",
+             @"realIcon" : @"icon"};
+}
+
 @end
