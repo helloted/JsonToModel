@@ -8,7 +8,6 @@
 
 #import "NSObject+JsonToModel.h"
 #import <objc/runtime.h>
-#import <objc/message.h>
 
 typedef enum : NSUInteger {
     HTEncodingTypeUnknown    = 0, ///< unknown
@@ -84,12 +83,13 @@ typedef enum : NSUInteger {
     unsigned int propertyCount;
     objc_property_t *allPropertys = class_copyPropertyList([self class], &propertyCount);
     
-    // 某些属性需要映射===
+    // 某些属性需要重新映射===
     NSDictionary *mapperDict;
     if ([self conformsToProtocol:@protocol(JSONModelSpecialAttributesProtocol)] && [[self class] respondsToSelector:@selector(attributesMapperDictionary)]) {
         mapperDict = [[self class] attributesMapperDictionary];
     }
     
+    // 模型嵌套
     NSDictionary *nestDict;
     if ([self conformsToProtocol:@protocol(JSONModelSpecialAttributesProtocol)] && [[self class] respondsToSelector:@selector(attributesNestDictionary)]) {
         nestDict = [[self class] attributesNestDictionary];
@@ -125,8 +125,6 @@ typedef enum : NSUInteger {
         }
         
 //        getProperyType(property);
-                
-        
     }
     
     free(allPropertys);
