@@ -16,6 +16,8 @@
 @property (assign, nonatomic) double height;
 @property (strong, nonatomic) NSNumber *money;
 
+@property (nonatomic, assign)BOOL isMan;
+
 @property (nonatomic, strong)NSArray *add;
 @property (nonatomic, strong)NSArray *adds;
 @property (nonatomic, strong)NSDictionary *dddd;

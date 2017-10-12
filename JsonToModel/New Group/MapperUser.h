@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "NSObject+JsonToModel.h"
 
-@interface MapperUser : NSObject <JSONAttributesMapperProtocol>
+@interface MapperUser : NSObject <JSONModelSpecialAttributesProtocol>
 
 @property (copy, nonatomic) NSString *realName;
 @property (copy, nonatomic) NSString *realIcon;

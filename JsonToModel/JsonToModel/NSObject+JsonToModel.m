@@ -36,7 +36,7 @@ typedef enum : NSUInteger {
 
 - (void)updateModelWithJson:(id)json{
     NSDictionary *jsonDict = [self dictionaryWithJSON:json];
-    [self ht_modelWithDictionary:jsonDict];
+    [self modelWithJsonDictionary:jsonDict];
 }
 
 /**
@@ -79,19 +79,21 @@ typedef enum : NSUInteger {
 }
 
 
-
-
--(instancetype)ht_modelWithDictionary:(NSDictionary *)dict{
+-(instancetype)modelWithJsonDictionary:(NSDictionary *)dict{
     //获取当前类中的所有属性
     unsigned int propertyCount;
     objc_property_t *allPropertys = class_copyPropertyList([self class], &propertyCount);
     
-    // 某些属性需要映射
+    // 某些属性需要映射===
     NSDictionary *mapperDict;
-    if ([self conformsToProtocol:@protocol(JSONAttributesMapperProtocol)] && [[self class] respondsToSelector:@selector(attributesMapperDictionary)]) {
+    if ([self conformsToProtocol:@protocol(JSONModelSpecialAttributesProtocol)] && [[self class] respondsToSelector:@selector(attributesMapperDictionary)]) {
         mapperDict = [[self class] attributesMapperDictionary];
     }
     
+    NSDictionary *nestDict;
+    if ([self conformsToProtocol:@protocol(JSONModelSpecialAttributesProtocol)] && [[self class] respondsToSelector:@selector(attributesNestDictionary)]) {
+        nestDict = [[self class] attributesNestDictionary];
+    }
     
     for (NSInteger i = 0; i < propertyCount; i ++) {
         objc_property_t property = allPropertys[i];
@@ -99,7 +101,7 @@ typedef enum : NSUInteger {
         //拿到属性名称和类型
         NSString *property_name = [NSString stringWithUTF8String:property_getName(property)];
         
-        // 如果有属性需要重新映射
+        // 如果有属性需要重新映射===
         NSString *key = property_name;
         if (mapperDict && [mapperDict objectForKey:property_name]) {
             key = [mapperDict objectForKey:property_name];
@@ -111,9 +113,22 @@ typedef enum : NSUInteger {
             continue;
         }
         
-        [self setValue:value forKey:key];
+        // 如果有属性嵌套其他Model
+        if (nestDict && [nestDict objectForKey:property_name]) {
+            NSString *className = [nestDict objectForKey:property_name];
+            Class class = NSClassFromString(className);
+            id obj = [[class alloc]init];
+            [obj modelWithJsonDictionary:value];
+            [self setValue:obj forKey:key];
+        }else{
+            [self setValue:value forKey:key];
+        }
+        
+//        getProperyType(property);
+                
         
     }
+    
     free(allPropertys);
     return self;
 }
@@ -123,6 +138,8 @@ HTEncodingType getProperyType(objc_property_t property){
     unsigned int count = 0;
     objc_property_attribute_t *attributes = property_copyAttributeList(property, &count);
     const char *encodingType = attributes[0].value;
+    
+    NSLog(@"name--%@",[NSString stringWithUTF8String:encodingType]);
     
     char *type = (char *)encodingType;
     if (!type) return HTEncodingTypeUnknown;

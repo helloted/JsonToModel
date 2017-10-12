@@ -10,6 +10,7 @@
 #import "User.h"
 #import "NSObject+JsonToModel.h"
 #import "MapperUser.h"
+#import "School.h"
 
 @interface ViewController ()
 
@@ -20,8 +21,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self testNormal];
+    [self testSchool];
     
+}
+
+
+- (void)testSchool{
+    NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"school" ofType:nil];
+    NSString *jsonStr = [NSString stringWithContentsOfFile:sourcePath encoding:NSUTF8StringEncoding error:nil];
+    
+    School *school = [School ht_modelFromJson:jsonStr];
+    
+//    school.user = [school.user ht_modelWithJsonDictionary:school.user];
+    
+    NSLog(@"%f",school.user.height);
 }
 
 - (void)testMapper{
@@ -55,12 +68,8 @@
     
      [user updateModelWithJson:jsonStr];
     
-
-    
-////
-    CGFloat a = user.height + 10.1;
-////
-//    NSLog(@"add--%f",a);
+    NSLog(@"add--%f",user.height);
+    NSLog(@"name--%@",user.name);
 ////
     user.height = 100.0000;
 }

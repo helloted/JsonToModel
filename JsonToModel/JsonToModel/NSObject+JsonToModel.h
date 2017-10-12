@@ -12,14 +12,17 @@
 
 +(instancetype)ht_modelFromJson:(id)json;
 
+-(instancetype)modelWithJsonDictionary:(NSDictionary *)dict;
+
 - (void)updateModelWithJson:(id)json;
 
 @end
 
-@protocol JSONAttributesMapperProtocol <NSObject>
+@protocol JSONModelSpecialAttributesProtocol <NSObject>
 
-@required
+@optional
 
 + (NSDictionary *)attributesMapperDictionary;
++ (NSDictionary *)attributesNestDictionary;
 
 @end

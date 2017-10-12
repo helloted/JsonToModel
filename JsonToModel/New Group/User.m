@@ -10,5 +10,13 @@
 
 @implementation User
 
+- (void)setHeight:(double)height{
+    _height = 100.001;
+}
+
+- (void)setName:(NSString *)name{
+    _name = [NSString stringWithFormat:@"my name is %@",name];
+}
+
 
 @end
