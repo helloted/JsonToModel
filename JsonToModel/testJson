@@ -1,7 +1,9 @@
 {
-    "age": 20,
+    "age": "20",
     "money": 100.9,
     "icon": "lufy.png",
     "name": "Jack",
-    "height": 1.666
+    "height": 1.666348394343,
+    "add":["a","b"]
+
 }

@@ -12,7 +12,7 @@
 
 @property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *icon;
-@property (assign, nonatomic) NSUInteger age;
+//@property (assign, nonatomic) NSUInteger age;
 @property (assign, nonatomic) double height;
 @property (strong, nonatomic) NSNumber *money;
 

@@ -12,6 +12,8 @@
 
 +(instancetype)ht_modelFromJson:(id)json;
 
+- (void)updateModelWithJson:(id)json;
+
 @end
 
 @protocol JSONAttributesMapperProtocol <NSObject>

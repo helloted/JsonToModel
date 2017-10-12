@@ -13,6 +13,6 @@
 
 @property (copy, nonatomic) NSString *realName;
 @property (copy, nonatomic) NSString *realIcon;
-@property (assign, nonatomic) double height;
+//@property (assign, nonatomic) double height;
 
 @end
